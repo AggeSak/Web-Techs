@@ -1,0 +1,39 @@
+body {
+  background-color: black;
+  background-image: url('C:/Users/User/Desktop/DnD Web/Vanila/Image/Dragon.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  margin: 0%; 
+  display: flex;
+  justify-content: center;  /* Centers horizontally */
+  align-items: center;  /* Centers vertically */
+  height: 100vh;
+}
+
+h1 {
+    color: rgb(119, 0, 255);
+    font-size: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    justify-content: center;  /* Centers horizontally */
+    align-items: center;  /* Centers vertically */
+    height: 10vh;    
+}
+
+form {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+form.input {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #941818;
+    border-radius: 4px;
+}
