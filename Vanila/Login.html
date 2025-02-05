@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="CSS/style.css">
-    <link rel="javascript" href="Javascript/Login.js">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>✨🧙‍♂️ 𝓛𝓸𝓰𝓲𝓷 𝓓𝓷𝓓 🐉✨</title>
-
-
+    <title>Login</title>
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
-    <h1>Hello... It was time, adventurer! <span>🧙‍♂️</span> <span>⚔️</span> <span>🛡️</span> <span>🐉</span></h1>
-    
-    <form>
-        <label for="fname">Character:</label><br>
-        <input type="text" id="fname" name="fname"><br>
-        <label for="lname">Last name:</label><br>
-        <input type="text" id="lname" name="lname">
-        <input type="submit" value="Submit">
-      </form>
-
-
+    <div class="login-container">
+        <h2>Login</h2>
+        <form>
+            <div class="input-group">
+                <input type="text" placeholder="Username" required>
+            </div>
+            <div class="input-group">
+                <input type="password" placeholder="Password" required>
+            </div>
+            <button type="submit">Login</button>
+            <p class="register-link">Don't have an account? <a href="#">Sign up</a></p>
+        </form>
+    </div>
 </body>
 </html>
