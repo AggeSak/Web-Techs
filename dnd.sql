@@ -1,22 +1,31 @@
 CREATE DATABASE DnD;
+USE DnD;
 
-CREATE TABLE table_name (
-    Name varchar(255),
-    CharacterClass varchar(255),
-    Subclass varchar(255),
-    Age int,
-    Money int,
-    Inventory varchar(255),
+-- Users Table (for login/signup)
+CREATE TABLE Users (
+    UserID INT AUTO_INCREMENT PRIMARY KEY,
+    Name VARCHAR(255) UNIQUE NOT NULL,
+    Email VARCHAR(255) UNIQUE NOT NULL,
+    Password VARCHAR(255) NOT NULL -- Plaintext for now (but not recommended for real apps)
 );
 
-INSERT INTO table_name (Name, CharacterClass, Subclass, Age, Money, Inventory)
-VALUES ('John', 'Fighter', 'Champion', 25, 100, 'Sword, Shield, Armor');
-
-CREATE TABLE Login_Credentials (
-    Name varchar(255),
-    Password varchar(255),
-    
-    
-    
-    
+-- Characters Table (linked to Users)
+CREATE TABLE Characters (
+    CharacterID INT AUTO_INCREMENT PRIMARY KEY,
+    UserID INT, -- Links characters to a user
+    Name VARCHAR(255) NOT NULL,
+    CharacterClass VARCHAR(255) NOT NULL,
+    Subclass VARCHAR(255),
+    Age INT,
+    Money INT DEFAULT 0,
+    Inventory TEXT,
+    FOREIGN KEY (UserID) REFERENCES Users(UserID) ON DELETE CASCADE
 );
+
+-- Sample User (Password is plaintext for now)
+INSERT INTO Users (Name, Email, Password) 
+VALUES ('JohnDoe', 'john@example.com', 'mypassword123');
+
+-- Sample Character (Linked to UserID 1)
+INSERT INTO Characters (UserID, Name, CharacterClass, Subclass, Age, Money, Inventory) 
+VALUES (1, 'John', 'Fighter', 'Champion', 25, 100, 'Sword, Shield, Armor');
