@@ -1,19 +1,33 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Get the form and handle the login logic
     document.getElementById('loginForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the form from submitting the traditional way
-        
+        event.preventDefault(); // Prevent default form submission
+
         // Get the username and password from input fields
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        const username = usernameInput.value.trim();  // Trim removes extra spaces
+        const password = passwordInput.value.trim();
+
+        // Validation: Check if username or password is too short
+        if (username.length < 2 || password.length < 2) {
+            document.getElementById('errorMessage').innerText = 'Username and password must be at least 2 characters long.';
+            document.getElementById('successMessage').innerText = ''; // Clear success message
+
+            // Turn the input fields red
+            if (username.length < 2) usernameInput.style.backgroundColor = " red";
+            if (password.length < 2) passwordInput.style.border = "2px solid red";
+
+            return; // Stop execution (don't send the request)
+        } else {
+            // Reset border color if valid
+            usernameInput.style.border = "";
+            passwordInput.style.border = "";
+        }
 
         // Create the data object to send to the server
         const data = `username=${username}&password=${password}`;
 
-        //console.log("Sending request with data:", data);
-
-
-        // Make the POST request to the backend server
+        // Send POST request to backend
         fetch('http://localhost:8080/login', {
             method: 'POST',
             headers: {
@@ -23,15 +37,12 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(response => response.text())
         .then(data => {
-            // If login is successful, show a success message, otherwise show an error
             if (data === "Login successful") {
-                // Show success message
                 document.getElementById('successMessage').innerText = 'Login successful!';
-                document.getElementById('errorMessage').innerText = ''; // Clear any error message
+                document.getElementById('errorMessage').innerText = ''; // Clear error message
             } else {
-                // Show error message
                 document.getElementById('errorMessage').innerText = 'Invalid username or password.';
-                document.getElementById('successMessage').innerText = ''; // Clear any success message
+                document.getElementById('successMessage').innerText = ''; // Clear success message
             }
         })
         .catch(error => {
