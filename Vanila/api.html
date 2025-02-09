@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <!-- Specify the CSS File -->
+    <link rel="stylesheet" type="text/css" href="CSS/api.css" >
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit">Login</button>
+        </form>
+        <div id="successMessage"></div>
+        <div id="errorMessage" style="color: red;"></div>
+    </div>
+
+    <!-- Specify the Javascript File -->
+    <script type="text/javascript" src="Javascript/api.js"></script>
+</body>
+</html>
