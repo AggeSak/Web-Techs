@@ -14,7 +14,7 @@ public class back {
 
         try {
             // 1. Φόρτωση JDBC Driver
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
 
             // 2. Δημιουργία σύνδεσης
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);

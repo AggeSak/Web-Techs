@@ -29,3 +29,5 @@ VALUES ('JohnDoe', 'john@example.com', 'mypassword123');
 -- Sample Character (Linked to UserID 1)
 INSERT INTO Characters (UserID, Name, CharacterClass, Subclass, Age, Money, Inventory) 
 VALUES (1, 'John', 'Fighter', 'Champion', 25, 100, 'Sword, Shield, Armor');
+INSERT INTO Characters (UserID, Name, CharacterClass, Subclass, Age, Money, Inventory) 
+VALUES (2, 'George', 'Fighter', 'Paladin', 45, 1000, 'Sword, Shield, Armor');
